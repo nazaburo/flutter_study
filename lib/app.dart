@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study/router.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 final helloWorldProvider = Provider((_) => 'Hello world');
@@ -8,15 +9,13 @@ class App extends HookConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final String value = ref.watch(helloWorldProvider);
+    final router = ref.watch(routerProvider);
 
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Example')),
-        body: Center(
-          child: Text(value),
-        ),
-      ),
+    return MaterialApp.router(
+      routeInformationProvider: router.routeInformationProvider,
+      routeInformationParser: router.routeInformationParser,
+      routerDelegate: router.routerDelegate,
+      title: 'Example',
     );
   }
 }
