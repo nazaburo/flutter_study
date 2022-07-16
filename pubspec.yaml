@@ -42,6 +42,7 @@ dependencies:
   json_annotation: ^4.6.0
 
 dev_dependencies:
+  # flutter pub run build_runner build
   build_runner:
   flutter_gen_runner:
   flutter_test:
